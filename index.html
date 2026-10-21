@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPOB Telkomsel Express</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#EC2028">
+</head>
+<body>
+
+    <header>
+        <h2>Halo, Agenku 👋</h2>
+        <div class="saldo-card">
+            <div>
+                <small>Saldo Anda</small>
+                <h3 id="saldo-text">Rp 1.500.000</h3>
+            </div>
+            <button onclick="tambahSaldo()" style="background: white; color: #EC2028; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">+ Deposit</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Menu Kategori -->
+        <div class="menu-grid">
+            <div class="menu-item active" onclick="changeMenu('pulsa')">📱 Pulsa</div>
+            <div class="menu-item" onclick="changeMenu('data')">🌐 Data</div>
+            <div class="menu-item" onclick="changeMenu('pln')">⚡ PLN</div>
+            <div class="menu-item" onclick="changeMenu('game')">🎮 Game</div>
+        </div>
+
+        <!-- Form Transaksi -->
+        <div class="card">
+            <h3 id="form-title" style="margin-bottom: 15px;">Beli Pulsa Reguler</h3>
+            <form id="transaction-form" onsubmit="processTransaction(event)">
+                <div class="form-group">
+                    <label id="label-target">Nomor HP / Tujuan</label>
+                    <input type="text" id="target-input" placeholder="Contoh: 081234567890" required>
+                </div>
+                <div class="form-group">
+                    <label>Pilih Produk</label>
+                    <select id="product-select">
+                        <option value="10000">Pulsa Telkomsel 10.000 - Rp 11.500</option>
+                        <option value="20000">Pulsa Telkomsel 20.000 - Rp 21.500</option>
+                        <option value="50000">Pulsa Telkomsel 50.000 - Rp 52.000</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Bayar Sekarang</button>
+            </form>
+        </div>
+
+        <!-- Riwayat Transaksi -->
+        <div class="card">
+            <h4>Riwayat Transaksi Terakhir</h4>
+            <div class="transaction-list" id="history-list">
+                <!-- Data akan di-load via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+                      </html>
